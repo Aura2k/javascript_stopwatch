@@ -11,12 +11,18 @@ let seconds = 00;
 let time = 00;
 let timer = false;
 
+let limit = 0;
+
 startBtn.addEventListener('click', function () {
+    limit++;
     timer = true;
-    stopWatch();
+    if(limit == 1) {
+        stopWatch();
+    }
 })
 
 stopBtn.addEventListener('click', function () {
+    limit = 0;
     timer = false;
 })
 
@@ -25,6 +31,7 @@ resetBtn.addEventListener('click', function () {
     minutes = 00;
     seconds = 00;
     time = 00;
+    limit = 0;
 
     minuteTime.innerHTML = "00";
     secondTime.innerHTML = "00";
